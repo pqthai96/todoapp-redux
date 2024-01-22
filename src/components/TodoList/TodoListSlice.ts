@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, current} from "@reduxjs/toolkit";
 
 export default createSlice({
   name: 'todoList',
@@ -12,7 +12,7 @@ export default createSlice({
       state.push(action.payload);
     },
     changeStatus: (state, action) => {
-      state[state.findIndex(todo => todo.id === action.payload.id)].completed = action.payload.status;
+      state[state.findIndex(todo => todo.id === action.payload.id)].completed = action.payload.checked;
     }
   }
 })

@@ -8,7 +8,6 @@ export const todoListSelector = (state: any) => state.todoList;
 
 export const todoRemainingSelector = createSelector([searchTextSelector, filterStatusSelector, filterPrioritiesSelector, todoListSelector],  (searchText, status, priorities, todoList) => {
 
-  console.log(todoList);
   return todoList.filter((todo: Todo) => {
     let priorityFilter = true;
     if (priorities.length > 0) {
