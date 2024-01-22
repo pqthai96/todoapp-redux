@@ -1,7 +1,7 @@
-import { Row, Tag, Checkbox } from 'antd';
+import {Checkbox, Row, Tag} from 'antd';
 import {useEffect, useState} from 'react';
 import {useDispatch} from "react-redux";
-import {changeStatus} from "../../redux/actions";
+import todoListSlice from "../TodoList/TodoListSlice";
 
 interface PriorityColorMapping {
   [key: string]: string
@@ -29,7 +29,7 @@ export default function Todo({ id, name, priority, completed }: TodoProps) {
   };
 
   useEffect(() => {
-    dispatch(changeStatus(id, checked));
+    dispatch(todoListSlice.actions.changeStatus({id, checked}));
   }, [checked]);
 
   return (
